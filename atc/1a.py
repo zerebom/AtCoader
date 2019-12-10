@@ -52,25 +52,36 @@ def stack_dfs():
             remove_stack = True
 
 # https://atcoder.jp/contests/atc001/submissions/8788066
+
+
+h, w = map(int, input().split())
+# 入力の外側を囲う用に#をつけてて頭がいい
+input_field = [["#"] * (w + 2)] + [list("#" + input() + "#") for _ in range(h)] + [["#"] * (w + 2)]
+
+
+# xとy逆だった…
 def iterative_dfs(field):
-    sr, sc = 0, 0
+    sx, sy = 0, 0
     for i, row in enumerate(field):
         if "s" in row:
-            sr, sc = i, row.index("s")
-
+            sx, sy = i, row.index("s")
+    # 進む方向
     drc = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    stack = [(sr, sc)]
+    # 最初はスタートをスタックしておく
+    stack = [(sx, sy)]
 
     while stack:
-        cr, cc = stack.pop()
-        for dr, dc in drc:
-            nr, nc = cr + dr, cc + dc
-            if field[nr][nc] == "#":
+        cx, cy = stack.pop()
+        for dx, dy in drc:
+            nx, ny = cx + dx, cy + dy
+            if field[nx][ny] == "#":
                 continue
-            if field[nr][nc] == "g":
+            if field[nx][ny] == "g":
                 return "Yes"
-            stack.append((nr, nc))
-            field[nr][nc] = "#"
+            # 壁でもゴールでも無ければスタックに追加。
+            stack.append((nx, ny))
+            # 通ったところは壁にしてしまう。
+            field[nx][ny] = "#"
     return "No"
 
 
