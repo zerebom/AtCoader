@@ -1,5 +1,5 @@
 #A - 深さ優先探索
-# https://atcoder.jp/contests/atc001/tasks/dfs_a
+# https://atcoder.jp/conte2sts/atc001/tasks/dfs_a
 import numpy as np
 H, W = map(int, input().split())
 
