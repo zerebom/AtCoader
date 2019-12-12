@@ -23,6 +23,8 @@ n^k={
 
 '''
 
+N, M, P = list(map(int, input().split()))
+
 
 def pow_mod(n, k, m):
     if k == 0:
@@ -34,17 +36,29 @@ def pow_mod(n, k, m):
         return t * t % m
 
 
+print(pow_mod(N, P, M))
+
+
 def pow_mod_bin(n, k, m):
     '''
+    :DOING
     二進数を用いたバージョン。
     kを二進数変換して１になったところの桁を掛け算する。
     (n^22=n^(2+4+16))
     ・組み合わせ、場合のかず
     ・素数pに対する逆元？
     ・行列の累乗などに対応
-    '''
-    r = 1
-    for k in range(k,0 k >> 1):
-        if(k & 1)r = (r * n) % m:
-            n = (n * n) % m
-        return r
+    # '''
+    # r = 1
+    # for k in range(k, 0, k >> 1):
+    #     if(k & 1):
+    #          (r * n) % m:
+    #         n = (n * n) % m
+    #     return r
+
+
+'''
+これでいけるらしい
+a,b,c=map(int,input().split())
+print(pow(a,c,b))
+'''
