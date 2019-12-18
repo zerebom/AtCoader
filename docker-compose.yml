@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    dev:
+        build: .
+        volumes:
+            - type: bind
+              source: .
+              target: /cpp-dev
+        tty: true #常に起動している
+        working_dir: /cpp-dev/src/build #execしたときの作業場所？
