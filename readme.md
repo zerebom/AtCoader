@@ -13,3 +13,16 @@ abc/146c.pyとかにする。
 
 ## 目標
 一日 300 3問,400 1問
+## Docker環境の構築
+```
+#外側から動かすやつ
+docker-compose build
+docker-compose run dev bash
+
+# 
+cmake ..
+cmake --build .
+./hoge
+
+
+```
