@@ -57,10 +57,12 @@ E = []
 for n in range(N):
     A = int(input())
     for _ in range(A):
-        x, y = list(map(int, input().split()))
+        x, y = list(map(int, inpu,t().split()))
         E.append((n, x - 1, y))
 ans = 0
+#1をN個シフトさせ、−1ずつ減らしていく。
 for k in range((1 << N) - 1, -1, -1):
+    #現在のbitがどうなっているかを表している
     status = [(k >> i) & 1 for i in range(N)]
     no_paradox = True
     for Xa, Xb, yb in E:
